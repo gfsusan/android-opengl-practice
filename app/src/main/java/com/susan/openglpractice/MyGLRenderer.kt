@@ -31,8 +31,8 @@ class MyGLRenderer : GLSurfaceView.Renderer {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0)
 
         // Draw shape
-//        mTriangle.draw(mMVPMatrix)
-        mTriangle.draw()
+        mTriangle.draw(mMVPMatrix)
+//        mTriangle.draw()
 
     }
 
