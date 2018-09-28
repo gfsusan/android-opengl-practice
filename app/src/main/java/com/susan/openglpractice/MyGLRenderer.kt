@@ -24,7 +24,16 @@ class MyGLRenderer : GLSurfaceView.Renderer {
     override fun onDrawFrame(unused: GL10) {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT)
 
+        // Set the camera position (View matrix)
+        Matrix.setLookAtM(mViewMatrix, 0, 0f, 0f, -3f, 0f, 0f, 0f, 0f, 1.0f, 0.0f)
+
+        // Calculate the projection and view transformation
+        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0)
+
+        // Draw shape
+//        mTriangle.draw(mMVPMatrix)
         mTriangle.draw()
+
     }
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
